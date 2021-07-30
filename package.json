@@ -1,0 +1,19 @@
+{
+  "name": "greedy-number-partitioning",
+  "version": "0.1.0",
+  "description": "Greedy number partitioning algorithm",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "partition",
+    "number",
+    "partitioning"
+  ],
+  "author": "Daniel Vopalecky",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
