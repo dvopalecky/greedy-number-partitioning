@@ -14,7 +14,7 @@ $ npm install greedy-number-partitioning
 
 ## Usage
 ```javascript
-const greedyPartitioning = require('./index.js');
+const greedyPartitioning = require('greedy-number-partitioning');
 
 const arr = [6, 7, 16, 10, 15, 3, 11, 4, 12, 20, 5, 13, 19];
 
