@@ -6,6 +6,10 @@
   "scripts": {
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvopalecky/greedy-number-partitioning.git"
+  },
   "keywords": [
     "partition",
     "number",
