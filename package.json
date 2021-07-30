@@ -17,6 +17,7 @@
   ],
   "author": "Daniel Vopalecky",
   "license": "MIT",
+  "homepage": "https://github.com/dvopalecky/greedy-number-partitioning",
   "devDependencies": {
     "jest": "^27.0.6"
   }
