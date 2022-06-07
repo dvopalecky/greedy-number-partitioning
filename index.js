@@ -6,8 +6,8 @@
  * @param {number} numberOfSubsets
  * @returns - Array of arrays of numbers
  */
- function greedyPartitioning (array, numberOfSubsets) {
-  const sorted = array.sort((a, b) => b - a); // sort descending
+function greedyPartitioning(array, numberOfSubsets, arrayItemValue = (a) => a) {
+  const sorted = array.sort((a, b) => arrayItemValue(b) - arrayItemValue(a)); // sort descending
 
   const out = [...Array(numberOfSubsets)].map(x => {
     return {
@@ -19,7 +19,7 @@
   for (const elem of sorted) {
     const chosenSubset = out.sort((a, b) => a.sum - b.sum)[0];
     chosenSubset.elements.push(elem);
-    chosenSubset.sum += elem;
+    chosenSubset.sum += arrayItemValue(elem);
   }
 
   return out.map(subset => subset.elements);
