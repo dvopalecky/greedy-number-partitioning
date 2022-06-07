@@ -2,8 +2,11 @@
   "name": "greedy-number-partitioning",
   "version": "0.1.0",
   "description": "Greedy number partitioning algorithm",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "prepublish": "npm run build",
+    "build": "tsc",
     "test": "jest"
   },
   "repository": {
@@ -19,6 +22,9 @@
   "license": "MIT",
   "homepage": "https://github.com/dvopalecky/greedy-number-partitioning",
   "devDependencies": {
-    "jest": "^27.0.6"
+    "@types/jest": "^28.1.1",
+    "jest": "^28.1.1",
+    "ts-jest": "^28.0.4",
+    "typescript": "^4.7.3"
   }
 }
