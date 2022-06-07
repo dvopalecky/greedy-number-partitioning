@@ -10,40 +10,15 @@ import { SubsetElement } from './types';
  * @returns - Array of arrays of (numbers | Objects)
  */
 
-
-export default function greedyPartitioning(
-  array: number[],
+export default function greedyPartitioning<T>(
+  array: T[],
   numberOfSubsets: number,
-) {
-  const sorted = array.sort((a: number, b: number) => b - a); // sort descending
+  valueOf: (x: T) => number = (x) => (x as any as number)
+): T[][] {
+  const sorted = array.sort((a: T, b: T) => valueOf(b) - valueOf(a)); // sort descending
 
   const out = [...Array(numberOfSubsets)].map(x => {
-    const elem: SubsetElement<number> = {
-      sum: 0,
-      elements: [],
-    };
-
-    return elem;
-  });
-
-  for (const elem of sorted) {
-    const chosenSubset = out.sort((a, b) => a.sum - b.sum)[0];
-    chosenSubset.elements.push(elem);
-    chosenSubset.sum += elem;
-  }
-
-  return out.map(subset => subset.elements);
-}
-
-export function greedyPartitioningObjects(
-  array: any[],
-  numberOfSubsets: number,
-  valueOf: (x: any) => number,
-) {
-  const sorted = array.sort((a, b) => valueOf(b) - valueOf(a)); // sort descending
-
-  const out = [...Array(numberOfSubsets)].map(x => {
-    const elem: SubsetElement<any> = {
+    const elem: SubsetElement<T> = {
       sum: 0,
       elements: [],
     };

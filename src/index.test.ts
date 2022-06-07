@@ -1,5 +1,4 @@
 import greedyPartitioning from './index';
-import { greedyPartitioningObjects } from './index';
 
 test('empty array', () => {
   expect(greedyPartitioning([], 1)).toStrictEqual([[]]);
@@ -29,19 +28,19 @@ describe('array of numbers', () => {
 describe('array of objects', () => {
   test('one number', () => {
     expect(
-      greedyPartitioningObjects([{ value: 1 }], 1, (x: { value: number }): number => x.value)
+      greedyPartitioning<{ value: number }>([{ value: 1 }], 1, (x: { value: number }): number => x.value)
     ).toStrictEqual([[{ value: 1 }]]);
   });
 
   test('same numbers', () => {
     expect(
-      greedyPartitioningObjects([{ value: 2 }, { value: 2 }, { value: 2 }], 3, (x: { value: number }) => x.value)
+      greedyPartitioning<{ value: number }>([{ value: 2 }, { value: 2 }, { value: 2 }], 3, (x: { value: number }) => x.value)
     ).toStrictEqual([[{ value: 2 }], [{ value: 2 }], [{ value: 2 }]]);
   });
 
   test('more numbers than subset', () => {
     expect(
-      greedyPartitioningObjects([{ value: 2 }, { value: 3 }], 3, (x: { value: number }) => x.value)
+      greedyPartitioning<{ value: number }>([{ value: 2 }, { value: 3 }], 3, (x: { value: number }) => x.value)
     ).toStrictEqual([[{ value: 2 }], [], [{ value: 3 }]]);
   });
 
@@ -50,7 +49,7 @@ describe('array of objects', () => {
     const arr = [{ value: 6 }, { value: 7 }, { value: 16 }, { value: 10 }, { value: 15 }, { value: 3 }, { value: 11 }, { value: 4 }, { value: 12 }, { value: 20 }, { value: 5 }, { value: 13 }, { value: 19 }];
     const expected = [[{ value: 19 }, { value: 13 }, { value: 7 }, { value: 6 }, { value: 3 }], [{ value: 16 }, { value: 15 }, { value: 11 }, { value: 4 }], [{ value: 20 }, { value: 12 }, { value: 10 }, { value: 5 }]];
     expect(
-      greedyPartitioningObjects(arr, 3, (x: { value: number }) => x.value)
+      greedyPartitioning<{ value: number }>(arr, 3, (x: { value: number }) => x.value)
     ).toStrictEqual(expected);
   });
 })
