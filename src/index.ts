@@ -4,10 +4,10 @@ import { SubsetElement } from './types';
  * Implementation of https://en.wikipedia.org/wiki/Greedy_number_partitioning
  * Sorts the numbers in descending order
  * Then iteratively add the next-largest number to a set in which the current sum is smallest.
- * @param {Object[] | number[]} array
+ * @param {T[]} array
  * @param {number} numberOfSubsets
- * @param {(x: Object | number) => number} valueOf
- * @returns - Array of arrays of (numbers | Objects)
+ * @param {(x: T) => number} valueOf
+ * @returns - Array of arrays of T
  */
 
 export default function greedyPartitioning<T>(
